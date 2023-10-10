@@ -11,8 +11,22 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        backgroundColor: Color.fromARGB(255, 229, 81, 255),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(103, 58, 183, 1), 
+                  Colors.purple
+                ], 
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight
+            ),
+                  
+          ),
+          child: const Center(
+            child: Text( 'Hello World!', style: TextStyle(color: Colors.white, fontSize: 28),),
+          ),
         ),
       ),
     ),
