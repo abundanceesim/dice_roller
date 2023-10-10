@@ -8,14 +8,23 @@ const endAlignment = Alignment.bottomRight;
 class GradientContainer extends StatelessWidget {
   // positional args by default are always required.
   // named args are optional - so you need to add the required keyword.
-  const GradientContainer(this.colorOne, this.colorTwo,  {super.key});
+  GradientContainer(this.colorOne, this.colorTwo, {super.key});
 
   // Constructor function that can be called to set the colors instead of typing
   // them in manually. const cause they can't be changed.
-  const GradientContainer.purple() : colorOne = Colors.deepPurple, colorTwo =  Colors.indigo;
+  GradientContainer.purple()
+      : colorOne = Colors.deepPurple,
+        colorTwo = Colors.indigo;
 
   final Color colorOne;
   final Color colorTwo;
+
+  var activeDiceImage = 'assets/images/dice-2.png';
+
+  void rollDice() {
+   activeDiceImage = 'assets/images/dice-4.png';
+   print('In activeDiceImage()');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +36,21 @@ class GradientContainer extends StatelessWidget {
             end: endAlignment),
       ),
       child: Center(
-        child: Image.asset('assets/images/dice-1.png', width: 200)
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset('assets/images/dice-2.png', width: 200),
+            TextButton(
+                onPressed: rollDice,
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.all(20),
+                  foregroundColor: Colors.white,
+                  textStyle: TextStyle(fontSize: 28),
+                ),
+                child: Text('Roll Dice'),
+                )
+          ],
+        ),
       ),
     );
   }

@@ -11,7 +11,7 @@ void main() {
   // helps to render the GUI on screen. requires one arg (the widget or widget tree)
   // Widget for a single widget, and widget tree for multiple nested widgets.
   runApp(
-    const MaterialApp(
+     MaterialApp(
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 229, 81, 255),
         body: GradientContainer.purple(),
