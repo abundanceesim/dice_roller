@@ -1,3 +1,4 @@
+import 'package:dice_roller/dice_roller.dart';
 import 'package:flutter/material.dart';
 import 'package:dice_roller/styled_text.dart';
 
@@ -19,12 +20,7 @@ class GradientContainer extends StatelessWidget {
   final Color colorOne;
   final Color colorTwo;
 
-  var activeDiceImage = 'assets/images/dice-2.png';
-
-  void rollDice() {
-   activeDiceImage = 'assets/images/dice-4.png';
-   print('In activeDiceImage()');
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +32,7 @@ class GradientContainer extends StatelessWidget {
             end: endAlignment),
       ),
       child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.asset('assets/images/dice-2.png', width: 200),
-            TextButton(
-                onPressed: rollDice,
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.all(20),
-                  foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 28),
-                ),
-                child: Text('Roll Dice'),
-                )
-          ],
-        ),
+        child: DiceRoller()
       ),
     );
   }
