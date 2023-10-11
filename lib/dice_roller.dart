@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+// only one randomizer would be created for the application.
+// Global variable btw.
+final randomizer = Random();
 class DiceRoller extends StatefulWidget {
 
   const DiceRoller({super.key});
@@ -13,6 +16,7 @@ class DiceRoller extends StatefulWidget {
 
 // Handles widget state for DiceRoller
 class _DiceRollerState extends State<DiceRoller>{
+  
   var currentDiceRoll = 2;
   var activeDiceImage = 'assets/images/dice-2.png';
 
@@ -21,7 +25,7 @@ class _DiceRollerState extends State<DiceRoller>{
     // with the new value for activeDiceImage
     setState(() {
       // add the 1 otherwise, the max would be at 5 (0-5)
-      currentDiceRoll = Random().nextInt(6) + 1;
+      currentDiceRoll = randomizer.nextInt(6) + 1;
     });
   }
 
